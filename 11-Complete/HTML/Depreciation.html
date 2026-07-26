@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depreciation Matrix</title>
+    <link rel="stylesheet" href="Depreciation.css">
+    <script src="Javascript/Depreciation.js"></script>
+</head>
+<!-- Botón de retorno -->
+<button onclick="window.location.href='../index.html'" style="margin-bottom: 20px;">Retornar</button>
+
+<body>
+    <header class="hero-header">
+        <h1>Depreciation Matrix</h1>
+        <h2>Company Name</h2>
+        <h3 id="current-date">Date will load here...</h3>
+    </header>
+    <main>
+        <div class="buttons-container">
+            <button id="add-row-btn">Add Asset</button>
+            <button id="delete-row-btn">Delete Last Row</button>
+        </div>
+        <table id="dep-table" class="dep-table">
+            <thead>
+                <tr>
+                    <th>Kind</th>
+                    <th>Name</th>
+                    <th>Useful Life (Years)</th>
+                    <th>Useful Life (Months)</th>
+                    <th>Buy Value</th>
+                    <th>Monthly Dep</th>
+                    <th>Yearly Dep</th>
+                </tr>
+            </thead>
+            <tbody id="dep-body">
+                <!-- Initial row added by JS -->
+            </tbody>
+            <tfoot id="dep-foot">
+                <tr class="totals-row">
+                    <td colspan="4"><strong>Totals</strong></td>
+                    <td id="total-buy">-</td>
+                    <td id="total-monthly">-</td>
+                    <td id="total-yearly">-</td>
+                </tr>
+            </tfoot>
+        </table>
+        <section class="summary-section">
+            <h4>Summary by Kind</h4>
+            <table id="kind-summary" class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Kind</th>
+                        <th>Total Buy Value</th>
+                        <th>Total Monthly Dep</th>
+                        <th>Total Yearly Dep</th>
+                    </tr>
+                </thead>
+                <tbody id="kind-body">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

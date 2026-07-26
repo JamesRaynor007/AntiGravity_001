@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Plantillas Financieras</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        nav { margin-bottom: 20px; }
+        section { display: none; }
+        section.active { display: block; }
+        button { margin: 5px; }
+        #resultado { margin-top: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+    </style>
+</head>
+<body>
+
+<h1>Gestor de Plantillas Financieras</h1>
+
+<nav>
+    <button onclick="mostrarSeccion('inicio')">Inicio</button>
+    <button onclick="mostrarSeccion('descargas')">Descargar Plantillas</button>
+    <button onclick="mostrarSeccion('cargar')">Cargar Archivo</button>
+</nav>
+
+<!-- Sección de inicio -->
+<section id="inicio" class="active">
+    <h2>Bienvenido</h2>
+    <p>Utiliza las opciones para descargar plantillas o cargar tus archivos XLSX para analizar.</p>
+</section>
+
+<!-- Sección de descargas -->
+<section id="descargas">
+    <h2>Descargar Templates</h2>
+    <button onclick="descargarTemplate('balance_sheet')">Descargar Balance Sheet</button>
+    <button onclick="descargarTemplate('cash_flow')">Descargar Cash Flow</button>
+</section>
+
+<!-- Sección para cargar archivos -->
+<section id="cargar">
+    <h2>Cargar Archivo XLSX</h2>
+    <input type="file" id="fileInput" accept=".xlsx, .xls" />
+    <div id="resultado"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+    // Función para mostrar una sección y ocultar las demás
+    function mostrarSeccion(id) {
+        document.querySelectorAll('section').forEach(sec => {
+            sec.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+    }
+
+    // Función para descargar templates
+    function descargarTemplate(tipo) {
+        // Aquí puedes generar los archivos dinámicamente o tener archivos estáticos
+        let wb = XLSX.utils.book_new();
+
+        if (tipo === 'balance_sheet') {
+            const data = [
+                ['Cuenta', 'Monto'],
+                ['Activo', 10000],
+                ['Pasivo', 5000],
+                ['Patrimonio', 5000]
+            ];
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            XLSX.utils.book_append_sheet(wb, ws, 'Balance Sheet');
+        } else if (tipo === 'cash_flow') {
+            const data = [
+                ['Mes', 'Ingreso', 'Egreso', 'Saldo'],
+                ['Enero', 5000, 2000, 3000],
+                ['Febrero', 6000, 2500, 3500]
+            ];
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            XLSX.utils.book_append_sheet(wb, ws, 'Cash Flow');
+        }
+
+        // Guardar el archivo
+        XLSX.writeFile(wb, `${tipo}.xlsx`);
+    }
+
+    // Evento para cargar archivos
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const archivo = e.target.files[0];
+        if (!archivo) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, {type: 'array'});
+
+            // Suponiendo que quieres mostrar el contenido de la primera hoja
+            const primeraHoja = workbook.Sheets[workbook.SheetNames[0]];
+            const jsonData = XLSX.utils.sheet_to_json(primeraHoja, {header:1});
+            
+            mostrarDatos(jsonData);
+        };
+        reader.readAsArrayBuffer(archivo);
+    });
+
+    // Función para mostrar datos en la página
+    function mostrarDatos(datos) {
+        const contenedor = document.getElementById('resultado');
+        contenedor.innerHTML = '';
+
+        if (!datos || datos.length === 0) {
+            contenedor.innerHTML = '<p>No hay datos para mostrar.</p>';
+            return;
+        }
+
+        const tabla = document.createElement('table');
+        // Crear encabezados
+        const encabezado = document.createElement('tr');
+        datos[0].forEach(celda => {
+            const th = document.createElement('th');
+            th.textContent = celda;
+            encabezado.appendChild(th);
+        });
+        tabla.appendChild(encabezado);
+
+        // Agregar filas
+        for (let i = 1; i < datos.length; i++) {
+            const fila = document.createElement('tr');
+            datos[i].forEach(celda => {
+                const td = document.createElement('td');
+                td.textContent = celda;
+                fila.appendChild(td);
+            });
+            tabla.appendChild(fila);
+        }
+
+        contenedor.appendChild(tabla);
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+
+</body>
+</html>

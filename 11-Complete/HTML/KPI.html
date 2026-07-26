@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plantilla Financiera Futurista</title>
+<link rel="stylesheet" href="KPI.css" />
+<!-- Incluyendo SheetJS para manejo de archivos Excel -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+<!-- Botón de retorno -->
+<button onclick="window.location.href='../index.html'" style="margin-bottom: 20px;">Retornar</button>
+<body>
+<header>
+<h1>Gestor de Plantilla Financiera</h1>
+</header>
+
+<section class="buttons-group">
+  <button id="download-template" class="btn">Download Template</button>
+  <input type="file" id="load-template" accept=".xlsx" style="display:none" />
+  <button id="load-template-btn" class="btn">Load Template</button>
+  <button id="refresh-template" class="btn">Refresh Template</button>
+</section>
+
+<section class="groups">
+  <div class="group" id="group-general">
+    <h2>GENERAL</h2>
+    <button class="toggle-btn" data-target="#general-kpis">Mostrar/Ocultar KPIs</button>
+    <div class="kpi-section" id="general-kpis">
+      <table>
+        <thead><tr><th>KPI</th><th>Valor Actual</th><th>Valor Pasado</th></tr></thead>
+        <tbody id="general-body"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="group" id="group-operative">
+    <h2>OPERATIVE</h2>
+    <button class="toggle-btn" data-target="#operative-kpis">Mostrar/Ocultar KPIs</button>
+    <div class="kpi-section" id="operative-kpis">
+      <table>
+        <thead><tr><th>KPI</th><th>Valor Actual</th><th>Valor Pasado</th></tr></thead>
+        <tbody id="operative-body"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="group" id="group-cashflow">
+    <h2>CASH FLOW</h2>
+    <button class="toggle-btn" data-target="#cashflow-kpis">Mostrar/Ocultar KPIs</button>
+    <div class="kpi-section" id="cashflow-kpis">
+      <table>
+        <thead><tr><th>KPI</th><th>Valor Actual</th><th>Valor Pasado</th></tr></thead>
+        <tbody id="cashflow-body"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="group" id="group-returns">
+    <h2>RETURNS</h2>
+    <button class="toggle-btn" data-target="#returns-kpis">Mostrar/Ocultar KPIs</button>
+    <div class="kpi-section" id="returns-kpis">
+      <table>
+        <thead><tr><th>KPI</th><th>Valor Actual</th><th>Valor Pasado</th></tr></thead>
+        <tbody id="returns-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Se añade un tbody para mostrar los KPIs del período pasado -->
+<!-- Nota: El HTML original tenía un tbody fuera de lugar, aquí se integra en la sección adecuada -->
+
+<!-- Incluye el script JavaScript al final -->
+<script src="Javascript/KPI.js"></script>
+</body>
+</html>

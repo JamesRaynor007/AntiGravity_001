@@ -1,0 +1,146 @@
+/* Petrol Oil Theme - Dark navy blue, teal green, slate grey */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F8FAFC;
+    color: #1E3A8A;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.hero-header {
+    text-align: center;
+    background: linear-gradient(135deg, #49cde4 0%, #187da8 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+}
+
+.hero-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-header h2 {
+    font-size: 1.8rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+#current-date {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.ap-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(67, 117, 121, 0.15);
+    margin-bottom: 2rem;
+}
+
+.ap-table th {
+    background: linear-gradient(135deg, #2bcbdc 0%, #187da8 100%);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.chart-canvas {
+    display: block;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(51, 65, 85, 0.15);
+    max-width: 100%;
+    height: auto;
+}
+
+.ap-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.ap-table tbody tr:hover {
+    background-color: #EFF6FF;
+}
+
+.amount-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #CBD5E1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.amount-input:focus {
+    outline: none;
+    border-color: #1897a8;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+.summary-row {
+    font-weight: 600;
+    background-color: #F1F5F9;
+    color: #1895a8;
+}
+
+.summary-row td {
+    border-top: 2px solid #2dc0bb;
+}
+
+#grand-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0F766E;
+    margin-left: 1rem;
+}
+
+#add-row {
+    background: linear-gradient(135deg, #0F766E 0%, #187da8 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+#add-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4);
+}
+
+@media (max-width: 768px) {
+    .ap-table {
+        font-size: 0.9rem;
+    }
+    
+    .ap-table th,
+    .ap-table td {
+        padding: 0.5rem;
+    }
+    
+    .hero-header h1 {
+        font-size: 2rem;
+    }
+}

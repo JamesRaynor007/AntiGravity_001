@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo futurista con imagen y estilos */
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background: 
+        linear-gradient(135deg, #318d94, #203a43, #2c5364),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* Estilos para el encabezado */
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00ffe7; /* Cian brillante */
+    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+}
+
+/* Contenedor principal dividido en columnas */
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: calc(100vh - 100px);
+}
+
+/* Panel izquierdo para los encabezados */
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* Panel derecho con tamaño fijo y estilo del menú */
+.right-panel {
+    flex: 0 0 250px; /* tamaño fijo de 250px */
+    background-color: rgba(41, 138, 149, 0.3);
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 80vh;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Divisor vertical entre paneles */
+.divider {
+    width: 2px;
+    background-color: #17d3cd;
+    max-height: 80vh;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    align-self: stretch;
+}
+
+/* Títulos en la izquierda */
+h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #32cd32; /* Verde lima */
+    text-shadow: 0 0 8px #32cd32;
+    text-align: left;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #3399ff; /* Azul claro */
+    text-shadow: 0 0 8px #3399ff;
+    text-align: left;
+}
+
+/* Lista de opciones del menú */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilos para los enlaces (botones) del menú */
+.menu-list a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #00ffe7; /* Cian brillante */
+    color: #000; /* Texto negro para contraste */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    text-decoration: none; /* quitar subrayado */
+}
+
+.menu-list a:hover {
+    background-color: #00d8d4; /* tono más oscuro al pasar */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .divider {
+        display: none;
+    }
+    .left-panel, .right-panel {
+        flex: none;
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+}

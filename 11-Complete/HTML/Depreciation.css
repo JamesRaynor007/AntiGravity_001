@@ -1,0 +1,208 @@
+/* Pro Petrol Theme: Grey, Dark Green, Light Blue */
+:root {
+    --petrol-grey: #6B7280;
+    --dark-green: #166534;
+    --light-blue: #0EA5E9;
+    --petrol-navy: #1E3A8A;
+    --bg-light: #F8FAFC;
+    --white: #FFFFFF;
+    --shadow: 0 10px 30px rgba(51, 65, 85, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #E2E8F0 100%);
+    color: var(--petrol-grey);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.hero-header {
+    text-align: center;
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--petrol-navy) 50%, var(--light-blue) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--petrol-grey), transparent);
+}
+
+.hero-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.hero-header h2 {
+    font-size: 1.8rem;
+    opacity: 0.95;
+    margin-bottom: 0.5rem;
+}
+
+#current-date {
+    font-size: 1.3rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    background: linear-gradient(135deg, var(--dark-green), var(--light-blue));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(22, 101, 52, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(22, 101, 52, 0.5);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+.dep-table, .summary-table {
+    width: 100%;
+    margin-bottom: 2rem;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.dep-table th {
+    background: linear-gradient(135deg, var(--petrol-grey) 0%, var(--dark-green) 100%);
+    color: white;
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.dep-table td, .summary-table td, .summary-table th {
+    padding: 1rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.dep-table tbody tr:hover {
+    background-color: #F0F9FF;
+}
+
+.dep-table input, .dep-table select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: #FAFAFA;
+}
+
+.dep-table input:focus, .dep-table select:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    background: white;
+}
+
+.totals-row {
+    background: linear-gradient(135deg, var(--light-blue), var(--petrol-navy)) !important;
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.summary-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.summary-section h4 {
+    color: var(--petrol-grey);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.summary-table th {
+    background: var(--petrol-grey);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.summary-table td {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .hero-header h1 {
+        font-size: 2rem;
+    }
+    
+    .dep-table {
+        font-size: 0.9rem;
+    }
+    
+    .dep-table th, .dep-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 250px;
+    }
+}

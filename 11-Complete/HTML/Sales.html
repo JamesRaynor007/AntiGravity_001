@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Plantillas XLSX</title>
+    <link rel="stylesheet" href="Sales.css" />
+</head>
+<!-- Botón de retorno -->
+<button onclick="window.location.href='../index.html'" style="margin-bottom: 20px;">Retornar</button>
+<body>
+    <div class="container">
+        <h1>Gestor de Plantillas XLSX</h1>
+        <div class="buttons">
+            <button id="downloadBtn">Descargar plantilla XLSX</button>
+            <input type="file" id="loadFile" accept=".xlsx" />
+            <button id="filterMonthBtn">Filtrar por mes</button>
+            <input type="month" id="monthInput" />
+            <button id="filterProductBtn">Filtrar por producto</button>
+            <select id="productSelect">
+                <option value="">Selecciona un producto</option>
+            </select>
+        </div>
+        <div class="table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo de Producto</th>
+                        <th>Unidades</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="totals" id="totalsContainer"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="Javascript/Sales.js"></script>
+</body>
+</html>

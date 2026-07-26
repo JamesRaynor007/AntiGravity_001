@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Contabilidad de Diez</title>
+<style>
+  body { 
+    background-color: #46826D; 
+    color: white; 
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  h1, h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  .texto-peque {
+    font-size: 15px;
+  }
+  .valor-input {
+    font-size: 15px;
+  }
+  .tabla-container {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 700px;
+  }
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #17c1e3;
+    width: 100%;
+  }
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    color: black;
+    text-align: left;
+  }
+  table tr:nth-child(even) {
+    background-color: #17c1e3;
+  }
+  table tr:nth-child(odd) {
+    background-color: #17c1e3;
+  }
+  button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    h1, h2 {
+      font-size: 16px;
+    }
+    .texto-peque {
+      font-size: 14px;
+    }
+    .valor-input {
+      font-size: 14px;
+      width: 60px;
+    }
+    button {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    table {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 400px) {
+    h1, h2 {
+      font-size: 14px;
+    }
+    .texto-peque {
+      font-size: 13px;
+    }
+    .valor-input, .form-input {
+      font-size: 13px;
+      width: 50px;
+    }
+    button {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
+  /* Styles for JS features */
+  .form-input {
+    width: 80px;
+    font-size: 15px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .comentario-input {
+    width: 120px !important;
+  }
+  .total-cell {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    padding: 12px;
+  }
+  .totals-row {
+    background-color: #e8f5e8 !important;
+    font-size: 16px;
+  }
+  .buttons-row td {
+    text-align: center;
+    padding: 15px;
+  }
+  .btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btn-reset {
+    background-color: #ff4444;
+    color: white;
+  }
+  .btn-reset:hover {
+    background-color: #cc0000;
+  }
+  .btn-save {
+    background-color: #44ff44;
+    color: black;
+  }
+  .btn-save:hover {
+    background-color: #00cc00;
+  }
+</style>
+</head>
+<!-- Botón de retorno -->
+
+<body>
+<h1 style="text-align: center;">Contabilidad de Diez</h1>
+
+
+
+<div class="tabla-container">
+  <form id="formulario">
+    <table>
+      <tr>
+        <th class="texto-peque">Valor</th>
+        <th class="texto-peque">Tipo</th>
+        <th class="texto-peque">Comentario</th>
+      </tr>
+    </table>
+  </form>
+</div>
+<button onclick="window.location.href='../index.html'" style="margin-bottom: 20px;">Retornar</button>
+
+<script src="JavaScript/Contabilidad.js"></script>
+</body>
+</html>
